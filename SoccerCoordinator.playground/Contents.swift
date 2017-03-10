@@ -32,47 +32,86 @@ var arnoldWillis: [String: String] = ["fName": "Arnold", "lName": "Willis","Heig
 
 var phillipHelm: [String: String] = ["fName": "Phillip", "lName": "Helm","Height": "44","Soccer Experience": "YES","Guardian Names": "Thomas Helm and Eva Jones"]
 
-var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42","Soccer Experience": "YES","Guarian Names": "Wynonna Brown"]
+var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42","Soccer Experience": "YES","Guardian Names": "Wynonna Brown"]
 
 var herschelKrustofski: [String: String] = ["fName": "Herschel", "lName": "Krustofski","Height": "45","Soccer Experience": "YES","Guardian Names": "Hyman and Rachel Krustofski"]
 
-// manually put players into players array
-// I made the players data seperate from the collection so that I could do something like joeSmith["fName"]
-
-
-
+// Empty players array
 var players = [[String:String]]()
+
+// manually put players into players array
+
 players  = [joeSmith,jillTanner,billBon,evaGordon,mattGill,kimmyStein,sammyAdams,karlSaygan,suzaneGreenberg,salDali,joeKavalier,benFinkelstein,diegoSoto,chloeAlaska,arnoldWillis,phillipHelm,lesClay,herschelKrustofski]
 
 
-players[0]["fName"]
-// Logic to put players in teams
+// TEST AREA BELOW///
+
+
+players[3]["fName"]
+players[3]["Soccer Experience"]
 
 
 
-var numberOfPlayers = 0
+//TEST AREA ABOVE///
 
-players[0]["fName"]
-players[numberOfPlayers]["fName"]
-var team1: [String] = []
-var team2: [String] = []
-var team3: [String] = []
+// Team information
+var teamDragons: [String] = []
+var teamSharks: [String] = []
+var teamRaptors: [String] = []
 
-while numberOfPlayers < players.count {
-    
-   print(players[numberOfPlayers]["fName"]!, players[numberOfPlayers]["Soccer Experience"]!)
-    
-    
-    
+//teamDragons.append(players[3]["fName"]!)
+// Experienced Player Count
+var teamDragonsExpPlayerCount: Int = 0
+var teamSharksExpPlayerCount: Int = 0
+var teamRaptorsExpPlayerCount: Int = 0
 
-    
-    numberOfPlayers += 1
-}
+// nonExpPlayerCount
+var teamDragonsNoPlayerCount: Int = 0
+var teamSharksNoPlayerCount: Int = 0
+var teamRaptorsNoPlayerCount: Int = 0
+
+//Empty team variable with team counter below
+var teams = [[String]]()
+
+teams = [teamDragons,teamSharks,teamRaptors]
+//Count number of times teams have value of [Exp person]
+
+
+    for player in players{
+    // Use .isEmpty to help append to teams
+    // If team has same(equal to) fName or Xp # greater than the xp # of other teams then do nothing
+    // then append to team
+        for (key, value) in player{
+            
+            switch (key,value) {
+            case ("Soccer Experience","YES"): print(player["fName"]!)
+                
+            case ("Soccer Experience","NO"): ()
+            default:
+                ()
+            
+            }
+            
+        }
+            
+            
+            
+       // if players[player]["Soccer Experience"] == "YES"{
+           // teams[teamDragons].append(players[player]["fName"]!)
+           // teamDragons.append(players[3]["fName"]!)
+        }
+
+        
+       
+ 
+        
 
 
 
-
-
+teams
+teamDragons
+teamRaptors
+teamSharks
 
 
 
