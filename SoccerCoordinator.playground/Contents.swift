@@ -1,4 +1,4 @@
-// Wrote out the player data to be used
+// Wrote out the player data to be used. So much fun thank you -_- lol
 
 var joeSmith = ["fName" : "Joe", "lName": "Smith","Height": "42","Soccer Experience": "YES","Guardian Names": "Jim and Jan Smith"]
 
@@ -69,6 +69,7 @@ var teamRaptorsExpPlayerCount: Int = 0
 var teamDragonsPlayerCount: Int = 0
 var teamSharksPlayerCount: Int = 0
 var teamRaptorsPlayerCount: Int = 0
+
 // nonExpPlayerCount
 var teamDragonsNoPlayerCount: Int = 0
 var teamSharksNoPlayerCount: Int = 0
@@ -87,8 +88,8 @@ teams = [teamDragons,teamSharks,teamRaptors]
         for (key, value) in player{
 // I found switch statement to be easiest to control attributes
             switch (key,value) {
-                
-            case ("Soccer Experience","YES"): /*print(player["fName"]!)*/();
+// I gave exxperienced players their own case statement with logic
+            case ("Soccer Experience","YES"):
                     
                 if teamDragonsExpPlayerCount < teamSharksExpPlayerCount {
                     teams[0].append(player["fName"]!)
@@ -101,9 +102,18 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 } else {
                     teams[2].append(player["fName"]!)
                     teamRaptorsExpPlayerCount += 1
-                    }
+                };
+                var letters = [String]()
+                
+                //Logic to fill the letters array
+                    letters.append("Dear *INSERT PARENTS NAMES*,\n   \(player["fName"]!) has been placed on *INSERT TEAM*. We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player) on *DATE OF TEAM PRACTICE*.")
+                
+                for letter in letters{
+                    print(letter)
+                }
                 
                 
+// Same for noexperience players
             case ("Soccer Experience","NO"): ();
                 
                 if teamDragonsNoPlayerCount < teamSharksNoPlayerCount {
@@ -117,28 +127,17 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 } else {
                     teams[2].append(player["fName"]!)
                     teamRaptorsNoPlayerCount += 1
-                }
+                        }
                 
-                
+//No value for default allows me to run code empty to ensure I adleast can get syntax correct!
             default:
                 ()
             
-            }
-            
         }
-       
-        
-            
-       // if players[player]["Soccer Experience"] == "YES"{
-           // teams[teamDragons].append(players[player]["fName"]!)
-           // teamDragons.append(players[3]["fName"]!)
-        }
-
-for team in 0..<teams.count{
-    
-print(teams[team])
-    
+    }
 }
+//Array for letters to be sent to Parents
+
 
 
 
