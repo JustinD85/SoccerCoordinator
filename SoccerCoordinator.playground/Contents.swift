@@ -65,6 +65,10 @@ var teamDragonsExpPlayerCount: Int = 0
 var teamSharksExpPlayerCount: Int = 0
 var teamRaptorsExpPlayerCount: Int = 0
 
+// number of player on team
+var teamDragonsPlayerCount: Int = 0
+var teamSharksPlayerCount: Int = 0
+var teamRaptorsPlayerCount: Int = 0
 // nonExpPlayerCount
 var teamDragonsNoPlayerCount: Int = 0
 var teamSharksNoPlayerCount: Int = 0
@@ -73,45 +77,68 @@ var teamRaptorsNoPlayerCount: Int = 0
 //Empty team variable with team counter below
 var teams = [[String]]()
 
+// array holding teams array
 teams = [teamDragons,teamSharks,teamRaptors]
-//Count number of times teams have value of [Exp person]
 
 
+// For in loop to get to next value
     for player in players{
-    // Use .isEmpty to help append to teams
-    // If team has same(equal to) fName or Xp # greater than the xp # of other teams then do nothing
-    // then append to team
+// Another for in loop to access the tupil pairs in dictionary
         for (key, value) in player{
-            
+// I found switch statement to be easiest to control attributes
             switch (key,value) {
-            case ("Soccer Experience","YES"): print(player["fName"]!)
                 
-            case ("Soccer Experience","NO"): ()
+            case ("Soccer Experience","YES"): /*print(player["fName"]!)*/();
+                    
+                if teamDragonsExpPlayerCount < teamSharksExpPlayerCount {
+                    teams[0].append(player["fName"]!)
+                    teamDragonsExpPlayerCount += 1
+                        
+                } else if teamSharksExpPlayerCount < teamRaptorsExpPlayerCount {
+                    teams[1].append(player["fName"]!)
+                        
+                    teamSharksExpPlayerCount += 1
+                } else {
+                    teams[2].append(player["fName"]!)
+                    teamRaptorsExpPlayerCount += 1
+                    }
+                
+                
+            case ("Soccer Experience","NO"): ();
+                
+                if teamDragonsNoPlayerCount < teamSharksNoPlayerCount {
+                    teams[0].append(player["fName"]!)
+                    teamDragonsNoPlayerCount += 1
+                
+                } else if teamSharksNoPlayerCount < teamRaptorsNoPlayerCount {
+                    teams[1].append(player["fName"]!)
+                
+                    teamSharksNoPlayerCount += 1
+                } else {
+                    teams[2].append(player["fName"]!)
+                    teamRaptorsNoPlayerCount += 1
+                }
+                
+                
             default:
                 ()
             
             }
             
         }
-            
-            
+       
+        
             
        // if players[player]["Soccer Experience"] == "YES"{
            // teams[teamDragons].append(players[player]["fName"]!)
            // teamDragons.append(players[3]["fName"]!)
         }
 
-        
-       
- 
-        
-
-
-
-teams
-teamDragons
-teamRaptors
-teamSharks
+for team in 0..<teams.count{
+    
+print(teams[team])
+    
+}
 
 
 
