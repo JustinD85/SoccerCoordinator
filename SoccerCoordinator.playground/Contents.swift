@@ -1,5 +1,6 @@
+// Wrote out the player data to be used
 
-var joeSmith: [String: String] = ["fName": "Joe", "lName": "Smith","Height": "42","Soccer Experience": "YES","Guardian Names": "Jim and Jan Smith"]
+var joeSmith = ["fName" : "Joe", "lName": "Smith","Height": "42","Soccer Experience": "YES","Guardian Names": "Jim and Jan Smith"]
 
 var jillTanner: [String: String] = ["fName": "Jill", "lName": "Tanner","Height": "36","Soccer Experience": "YES","Guardian Names": "Clara Tanner"]
 
@@ -34,4 +35,70 @@ var phillipHelm: [String: String] = ["fName": "Phillip", "lName": "Helm","Height
 var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42","Soccer Experience": "YES","Guarian Names": "Wynonna Brown"]
 
 var herschelKrustofski: [String: String] = ["fName": "Herschel", "lName": "Krustofski","Height": "45","Soccer Experience": "YES","Guardian Names": "Hyman and Rachel Krustofski"]
+
+// manually put players into players array
+// I made the players data seperate from the collection so that I could do something like joeSmith["fName"]
+
+
+
+var players = [[String:String]]()
+players  = [joeSmith,jillTanner,billBon,evaGordon,mattGill,kimmyStein,sammyAdams,karlSaygan,suzaneGreenberg,salDali,joeKavalier,benFinkelstein,diegoSoto,chloeAlaska,arnoldWillis,phillipHelm,lesClay,herschelKrustofski]
+
+
+players[0]["fName"]
+// Logic to put players in teams
+
+
+
+var numberOfPlayers = 0
+
+players[0]["fName"]
+players[numberOfPlayers]["fName"]
+var team1: [String] = []
+var team2: [String] = []
+var team3: [String] = []
+
+while numberOfPlayers < players.count {
+    
+   print(players[numberOfPlayers]["fName"]!, players[numberOfPlayers]["Soccer Experience"]!)
+    
+    
+    
+
+    
+    numberOfPlayers += 1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
