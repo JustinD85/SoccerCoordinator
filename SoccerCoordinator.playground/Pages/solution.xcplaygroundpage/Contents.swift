@@ -36,6 +36,9 @@ var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42",
 
 var herschelKrustofski: [String: String] = ["fName": "Herschel", "lName": "Krustofski","Height": "45","Soccer Experience": "YES","Guardian Names": "Hyman and Rachel Krustofski"]
 
+
+
+
 // Empty players array
 var players = [[String:String]]()
 
@@ -44,11 +47,24 @@ var players = [[String:String]]()
 players  = [joeSmith,jillTanner,billBon,evaGordon,mattGill,kimmyStein,sammyAdams,karlSaygan,suzaneGreenberg,salDali,joeKavalier,benFinkelstein,diegoSoto,chloeAlaska,arnoldWillis,phillipHelm,lesClay,herschelKrustofski]
 
 // Team information
-var teamDragons: [String] = []
-var teamSharks: [String] = []
-var teamRaptors: [String] = []
+var teamDragons = [String]()
+var teamSharks = [String]()
+var teamRaptors = [String]()
 
-//teamDragons.append(players[3]["fName"]!)
+// Array of Team Height value
+var arrayOfTeamDragonsHeight = [Int]()
+var arrayOfTeamSharksHeight = [Int]()
+var arrayOfTeamRaptorsPlayersHeight = [Int]()
+
+//Total height number for team
+var totalHeightRaptor: Int = 0
+var totalHeightDragon: Int = 0
+var totalHeightSharks: Int = 0
+// Average height number for team
+var avgHeightRaptor: Double = 0
+var avgHeightDragon: Double = 0
+var avgHeightSharks: Double = 0
+
 // Experienced Player Count
 var teamDragonsExpPlayerCount: Int = 0
 var teamSharksExpPlayerCount: Int = 0
@@ -59,12 +75,26 @@ var teamDragonsNoPlayerCount: Int = 0
 var teamSharksNoPlayerCount: Int = 0
 var teamRaptorsNoPlayerCount: Int = 0
 
+//function for height value
+func avgTeamHeight (arrayOfTeamsHeight: [Int], totalTeamsHeight: Int) -> Double{
+    
+    var totalTeamsHeight = totalTeamsHeight
+    
+    for playerHeight in 0..<arrayOfTeamsHeight.count{
+       
+        totalTeamsHeight += arrayOfTeamsHeight[playerHeight]
+    }
+    let teamAvgHeight: Double = Double(totalTeamsHeight) / Double(arrayOfTeamsHeight.count)
+    //print(teamAvgHeight)
+    return(Double(teamAvgHeight))
+    
+}
+
 //Empty team variable
 var teams = [[String]]()
 
 // array holding teams array
 teams = [teamDragons,teamSharks,teamRaptors]
-
 // For in loop to get to next value(each player in the array of players)
     for var player in players{
         
@@ -76,22 +106,29 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 
 // I gave experienced players their own case statement with logic
             case ("Soccer Experience","YES"):
-                    
-                if teamDragonsExpPlayerCount < teamSharksExpPlayerCount {
+                
+                        
+                    if teamDragonsExpPlayerCount < teamSharksExpPlayerCount  {
                     teams[0].append(player["fName"]!)
                     player["soccerTeams"] = "Dragons"
-                    player["teamPracticeTime"] = "March 17, 1pm"
-                    teamDragonsExpPlayerCount += 1
-                        
-                } else if teamSharksExpPlayerCount < teamRaptorsExpPlayerCount {
+                    player["teamPracticeTime"] = "March 17, at 1pm"
+                    arrayOfTeamDragonsHeight.append(Int(player["Height"]!)!)
+                    avgHeightDragon = avgTeamHeight(arrayOfTeamsHeight: arrayOfTeamDragonsHeight, totalTeamsHeight: totalHeightDragon)
+                        teamDragonsExpPlayerCount += 1
+                    }
+                    else if teamSharksExpPlayerCount < teamRaptorsExpPlayerCount {
                     teams[1].append(player["fName"]!)
                     player["soccerTeams"] = "Sharks"
-                    player["teamPracticeTime"] = "March 17, 3pm"
+                    player["teamPracticeTime"] = "March 17, at 3pm"
+                    arrayOfTeamSharksHeight.append(Int(player["Height"]!)!)
+                    avgHeightSharks = avgTeamHeight(arrayOfTeamsHeight: arrayOfTeamSharksHeight, totalTeamsHeight: totalHeightSharks)
                     teamSharksExpPlayerCount += 1
-                } else {
+                    } else {
                     teams[2].append(player["fName"]!)
                     player["soccerTeams"] = "Raptors"
-                    player["teamPracticeTime"] = "March 18, 1pm"
+                    player["teamPracticeTime"] = "March 18, at 1pm"
+                    arrayOfTeamRaptorsPlayersHeight.append(Int(player["Height"]!)!)
+                    avgHeightRaptor = avgTeamHeight(arrayOfTeamsHeight: arrayOfTeamRaptorsPlayersHeight, totalTeamsHeight: totalHeightRaptor)
                     teamRaptorsExpPlayerCount += 1
                 };
                 //logic for letters put inside case statement
@@ -99,6 +136,7 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 
                 //Logic and information  to fill the letters array
                 letters.append("Dear \(player["Guardian Names"]!),\n   \(player["fName"]!) has been placed on team \(player["soccerTeams"]!). We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player["fName"]!) on \(player["teamPracticeTime"]!).\n\n")
+                
                 // iterating thruough the letters
                 for letter in letters{
                     print(letter)
@@ -106,24 +144,39 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 
                 
 // Same for noexperience players as for experienced players(Just changed some word from exp to noexp)
+// Add logic for average player height inside switch statement in the case statement
             case ("Soccer Experience","NO"): ();
-                
+            
+            
+       /*   while team player average is lower or higher than average {}
+             // pull values before inserting players, sort the(9) values to get the average. then place playes in team according to sort order.
+            */
+         
+            
+             
+ 
+            
                 if teamDragonsNoPlayerCount < teamSharksNoPlayerCount {
                     teams[0].append(player["fName"]!)
                     player["teamPracticeTime"] = "March 17, 1pm"
                     player["soccerTeams"] = "Dragons"
+                    arrayOfTeamDragonsHeight.append(Int(player["Height"]!)!)
+                    avgHeightDragon = avgTeamHeight(arrayOfTeamsHeight: arrayOfTeamDragonsHeight, totalTeamsHeight: totalHeightDragon)
                     teamDragonsNoPlayerCount += 1
                 
                 } else if teamSharksNoPlayerCount < teamRaptorsNoPlayerCount {
                     teams[1].append(player["fName"]!)
                     player["teamPracticeTime"] = "March 17, 3pm"
                     player["soccerTeams"] = "Sharks"
-                
+                    arrayOfTeamSharksHeight.append(Int(player["Height"]!)!)
+                    avgHeightSharks = avgTeamHeight(arrayOfTeamsHeight: arrayOfTeamSharksHeight, totalTeamsHeight: totalHeightSharks)
                     teamSharksNoPlayerCount += 1
                 } else {
                     teams[2].append(player["fName"]!)
                     player["teamPracticeTime"] = "March 18, 1pm"
                     player["soccerTeams"] = "Raptors"
+                    arrayOfTeamRaptorsPlayersHeight.append(Int(player["Height"]!)!)
+                    avgHeightRaptor = avgTeamHeight(arrayOfTeamsHeight: arrayOfTeamRaptorsPlayersHeight, totalTeamsHeight: totalHeightRaptor)
                     teamRaptorsNoPlayerCount += 1
             };
             
@@ -135,30 +188,15 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 print(letter)
                 }
 //No value for default allows me to run code empty to ensure I adleast can get syntax correct!
+                
             default:
                 ()
             
         }
     }
+        
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(avgHeightDragon)
+print(avgHeightSharks)
+print(avgHeightRaptor)
