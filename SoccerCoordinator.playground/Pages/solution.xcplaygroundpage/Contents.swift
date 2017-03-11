@@ -2,7 +2,7 @@
 
 var joeSmith = ["fName" : "Joe", "lName": "Smith","Height": "42","Soccer Experience": "YES","Guardian Names": "Jim and Jan Smith"]
 
-var jillTanner: [String: String] = ["fName": "Jill", "lName": "Tanner","Height": "36","Soccer Experience": "YES","Guardian Names": "Clara Tanner"]
+var jillTanner: [String: String] = ["fName": "Jill", "lName": "Tanner","Height": "38","Soccer Experience": "YES","Guardian Names": "Clara Tanner"]
 
 var billBon: [String: String] = ["fName": "Bill", "lName": "Bon","Height": "43","Soccer Experience": "YES","Guardian Names": "Sara and Jenny Bon"]
 
@@ -30,7 +30,7 @@ var chloeAlaska: [String: String] = ["fName": "Chloe", "lName": "Alaska","Height
 
 var arnoldWillis: [String: String] = ["fName": "Arnold", "lName": "Willis","Height": "43","Soccer Experience": "NO","Guardian Names": "Claire Willis"]
 
-var phillipHelm: [String: String] = ["fName": "Phillip", "lName": "Helm","Height": "44","Soccer Experience": "YES","Guardian Names": "Thomas Helm and Eva Jones"]
+var phillipHelm: [String: String] = ["fName": "Phillip", "lName": "Helm","Height": "42","Soccer Experience": "YES","Guardian Names": "Thomas Helm and Eva Jones"]
 
 var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42","Soccer Experience": "YES","Guardian Names": "Wynonna Brown"]
 
@@ -141,20 +141,10 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 for letter in letters{
                     print(letter)
                 }
-                
-                
-// Same for noexperience players as for experienced players(Just changed some word from exp to noexp)
-// Add logic for average player height inside switch statement in the case statement
+  
             case ("Soccer Experience","NO"): ();
-            
-            
-       /*   while team player average is lower or higher than average {}
-             // pull values before inserting players, sort the(9) values to get the average. then place playes in team according to sort order.
-            */
-         
-            
-             
- 
+
+
             
                 if teamDragonsNoPlayerCount < teamSharksNoPlayerCount {
                     teams[0].append(player["fName"]!)
