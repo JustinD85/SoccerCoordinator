@@ -43,17 +43,6 @@ var players = [[String:String]]()
 
 players  = [joeSmith,jillTanner,billBon,evaGordon,mattGill,kimmyStein,sammyAdams,karlSaygan,suzaneGreenberg,salDali,joeKavalier,benFinkelstein,diegoSoto,chloeAlaska,arnoldWillis,phillipHelm,lesClay,herschelKrustofski]
 
-
-// TEST AREA BELOW///
-
-
-players[3]["fName"]
-players[3]["Soccer Experience"]
-
-
-
-//TEST AREA ABOVE///
-
 // Team information
 var teamDragons: [String] = []
 var teamSharks: [String] = []
@@ -65,34 +54,27 @@ var teamDragonsExpPlayerCount: Int = 0
 var teamSharksExpPlayerCount: Int = 0
 var teamRaptorsExpPlayerCount: Int = 0
 
-// number of player on team
-var teamDragonsPlayerCount: Int = 0
-var teamSharksPlayerCount: Int = 0
-var teamRaptorsPlayerCount: Int = 0
-
 // nonExpPlayerCount
 var teamDragonsNoPlayerCount: Int = 0
 var teamSharksNoPlayerCount: Int = 0
 var teamRaptorsNoPlayerCount: Int = 0
 
-//Empty team variable with team counter below
+//Empty team variable
 var teams = [[String]]()
 
 // array holding teams array
 teams = [teamDragons,teamSharks,teamRaptors]
 
-
-
-
-// For in loop to get to next value
+// For in loop to get to next value(each player in the array of players)
     for var player in players{
-        
         
 // Another for in loop to access the tupil pairs in dictionary
         for (key, value) in player{
+            
 // I found switch statement to be easiest to control attributes
             switch (key,value) {
-// I gave exxperienced players their own case statement with logic
+                
+// I gave experienced players their own case statement with logic
             case ("Soccer Experience","YES"):
                     
                 if teamDragonsExpPlayerCount < teamSharksExpPlayerCount {
@@ -112,18 +94,18 @@ teams = [teamDragons,teamSharks,teamRaptors]
                     player["teamPracticeTime"] = "March 18, 1pm"
                     teamRaptorsExpPlayerCount += 1
                 };
-                //logic for letters
+                //logic for letters put inside case statement
                 var letters = [String]()
                 
-                //Logic to fill the letters array
+                //Logic and information  to fill the letters array
                 letters.append("Dear \(player["Guardian Names"]!),\n   \(player["fName"]!) has been placed on team \(player["soccerTeams"]!). We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player["fName"]!) on \(player["teamPracticeTime"]!).\n\n")
-                
+                // iterating thruough the letters
                 for letter in letters{
                     print(letter)
                 }
                 
                 
-// Same for noexperience players
+// Same for noexperience players as for experienced players(Just changed some word from exp to noexp)
             case ("Soccer Experience","NO"): ();
                 
                 if teamDragonsNoPlayerCount < teamSharksNoPlayerCount {
@@ -144,10 +126,9 @@ teams = [teamDragons,teamSharks,teamRaptors]
                     player["soccerTeams"] = "Raptors"
                     teamRaptorsNoPlayerCount += 1
             };
-            //logic for letters
+            
             var letters = [String]()
             
-            //Logic to fill the letters array
             letters.append("Dear \(player["Guardian Names"]!),\n   \(player["fName"]!) has been placed on team \(player["soccerTeams"]!). We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player["fName"]!) on \(player["teamPracticeTime"]!).\n\n")
             
             for letter in letters{
@@ -160,16 +141,6 @@ teams = [teamDragons,teamSharks,teamRaptors]
         }
     }
 }
-//Array for letters to be sent to Parents
-
-
-
-
-
-
-
-
-
 
 
 
