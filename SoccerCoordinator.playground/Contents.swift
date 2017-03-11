@@ -8,7 +8,7 @@ var billBon: [String: String] = ["fName": "Bill", "lName": "Bon","Height": "43",
 
 var evaGordon: [String: String] = ["fName": "Eva", "lName": "Gordon","Height": "45","Soccer Experience": "NO","Guardian Names": "Wendy and Mike Gordon"]
 
-var mattGill: [String: String] = ["fName": "Matt", "lName": "Gill","Height": "40","Soccer Experience": "NO","Guardian Names": "JCharles and Sylvia Gill"]
+var mattGill: [String: String] = ["fName": "Matt", "lName": "Gill","Height": "40","Soccer Experience": "NO","Guardian Names": "Charles and Sylvia Gill"]
 
 var kimmyStein: [String: String] = ["fName": "Kimmy", "lName": "Stein","Height": "41","Soccer Experience": "NO","Guardian Names": "Bill and Hillary Stein"]
 
@@ -82,8 +82,12 @@ var teams = [[String]]()
 teams = [teamDragons,teamSharks,teamRaptors]
 
 
+
+
 // For in loop to get to next value
-    for player in players{
+    for var player in players{
+        
+        
 // Another for in loop to access the tupil pairs in dictionary
         for (key, value) in player{
 // I found switch statement to be easiest to control attributes
@@ -93,20 +97,26 @@ teams = [teamDragons,teamSharks,teamRaptors]
                     
                 if teamDragonsExpPlayerCount < teamSharksExpPlayerCount {
                     teams[0].append(player["fName"]!)
+                    player["soccerTeams"] = "Dragons"
+                    player["teamPracticeTime"] = "March 17, 1pm"
                     teamDragonsExpPlayerCount += 1
                         
                 } else if teamSharksExpPlayerCount < teamRaptorsExpPlayerCount {
                     teams[1].append(player["fName"]!)
-                        
+                    player["soccerTeams"] = "Sharks"
+                    player["teamPracticeTime"] = "March 17, 3pm"
                     teamSharksExpPlayerCount += 1
                 } else {
                     teams[2].append(player["fName"]!)
+                    player["soccerTeams"] = "Raptors"
+                    player["teamPracticeTime"] = "March 18, 1pm"
                     teamRaptorsExpPlayerCount += 1
                 };
+                //logic for letters
                 var letters = [String]()
                 
                 //Logic to fill the letters array
-                    letters.append("Dear *INSERT PARENTS NAMES*,\n   \(player["fName"]!) has been placed on *INSERT TEAM*. We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player) on *DATE OF TEAM PRACTICE*.")
+                letters.append("Dear \(player["Guardian Names"]!),\n   \(player["fName"]!) has been placed on team \(player["soccerTeams"]!). We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player["fName"]!) on \(player["teamPracticeTime"]!).\n\n")
                 
                 for letter in letters{
                     print(letter)
@@ -118,17 +128,31 @@ teams = [teamDragons,teamSharks,teamRaptors]
                 
                 if teamDragonsNoPlayerCount < teamSharksNoPlayerCount {
                     teams[0].append(player["fName"]!)
+                    player["teamPracticeTime"] = "March 17, 1pm"
+                    player["soccerTeams"] = "Dragons"
                     teamDragonsNoPlayerCount += 1
                 
                 } else if teamSharksNoPlayerCount < teamRaptorsNoPlayerCount {
                     teams[1].append(player["fName"]!)
+                    player["teamPracticeTime"] = "March 17, 3pm"
+                    player["soccerTeams"] = "Sharks"
                 
                     teamSharksNoPlayerCount += 1
                 } else {
                     teams[2].append(player["fName"]!)
+                    player["teamPracticeTime"] = "March 18, 1pm"
+                    player["soccerTeams"] = "Raptors"
                     teamRaptorsNoPlayerCount += 1
-                        }
-                
+            };
+            //logic for letters
+            var letters = [String]()
+            
+            //Logic to fill the letters array
+            letters.append("Dear \(player["Guardian Names"]!),\n   \(player["fName"]!) has been placed on team \(player["soccerTeams"]!). We are excited this year as our team rosters have now been standardized to have fair games(Fancy talk for mixing teams based on player experience level in so that no team should overall be more experienced than another. We are looking forward to seeing \(player["fName"]!) on \(player["teamPracticeTime"]!).\n\n")
+            
+            for letter in letters{
+                print(letter)
+                }
 //No value for default allows me to run code empty to ensure I adleast can get syntax correct!
             default:
                 ()
