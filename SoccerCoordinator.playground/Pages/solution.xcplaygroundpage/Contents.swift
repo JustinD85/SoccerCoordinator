@@ -36,6 +36,8 @@ var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42",
 
 var herschelKrustofski: [String: String] = ["fName": "Herschel", "lName": "Krustofski","Height": "45","Soccer Experience": "YES","Guardian Names": "Hyman and Rachel Krustofski"]
 
+//Function for all players average
+
 
 
 
