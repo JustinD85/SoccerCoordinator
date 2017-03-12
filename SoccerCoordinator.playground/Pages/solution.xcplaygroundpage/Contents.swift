@@ -2,7 +2,7 @@
 
 var joeSmith = ["fName" : "Joe", "lName": "Smith","Height": "42","Soccer Experience": "YES","Guardian Names": "Jim and Jan Smith"]
 
-var jillTanner: [String: String] = ["fName": "Jill", "lName": "Tanner","Height": "38","Soccer Experience": "YES","Guardian Names": "Clara Tanner"]
+var jillTanner: [String: String] = ["fName": "Jill", "lName": "Tanner","Height": "36","Soccer Experience": "YES","Guardian Names": "Clara Tanner"]
 
 var billBon: [String: String] = ["fName": "Bill", "lName": "Bon","Height": "43","Soccer Experience": "YES","Guardian Names": "Sara and Jenny Bon"]
 
@@ -30,16 +30,21 @@ var chloeAlaska: [String: String] = ["fName": "Chloe", "lName": "Alaska","Height
 
 var arnoldWillis: [String: String] = ["fName": "Arnold", "lName": "Willis","Height": "43","Soccer Experience": "NO","Guardian Names": "Claire Willis"]
 
-var phillipHelm: [String: String] = ["fName": "Phillip", "lName": "Helm","Height": "42","Soccer Experience": "YES","Guardian Names": "Thomas Helm and Eva Jones"]
+var phillipHelm: [String: String] = ["fName": "Phillip", "lName": "Helm","Height": "44","Soccer Experience": "YES","Guardian Names": "Thomas Helm and Eva Jones"]
 
 var lesClay: [String: String] = ["fName": "Les", "lName": "Clay","Height": "42","Soccer Experience": "YES","Guardian Names": "Wynonna Brown"]
 
 var herschelKrustofski: [String: String] = ["fName": "Herschel", "lName": "Krustofski","Height": "45","Soccer Experience": "YES","Guardian Names": "Hyman and Rachel Krustofski"]
 
 //Function for all players average
-
-
-
+func avgHeight(eachPlayer: [[String: String]]) -> Int{
+    var totalHeight: Int = 0
+    for player in players{
+    totalHeight += (Int(player["Height"]!)!)
+    }
+players.count
+   return  totalHeight/players.count
+}
 
 // Empty players array
 var players = [[String:String]]()
@@ -47,6 +52,8 @@ var players = [[String:String]]()
 // manually put players into players array
 
 players  = [joeSmith,jillTanner,billBon,evaGordon,mattGill,kimmyStein,sammyAdams,karlSaygan,suzaneGreenberg,salDali,joeKavalier,benFinkelstein,diegoSoto,chloeAlaska,arnoldWillis,phillipHelm,lesClay,herschelKrustofski]
+
+avgHeight(eachPlayer: players)
 
 // Team information
 var teamDragons = [String]()
